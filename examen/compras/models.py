@@ -5,24 +5,33 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Ciudad(models.Model):
-    nombre = models.CharField(max_length=80)
-
 class Region(models.Model):
-    nombre = models.CharField(max_length=80)
+    nombre = models.CharField(max_length=40)
+
+
+    def __str__(self):
+        return self.nombre
+
+
+class Ciudad(models.Model):
+    nombre = models.CharField(max_length=20)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE,blank=True)
+
+    def __str__(self):
+        return self.nombre
+
 
 class Tienda(models.Model):
     nombre = models.CharField(max_length=80)
     sucursal = models.CharField(max_length=80)
     direccion = models.CharField(max_length=80)
-    ciudad = models.ManyToManyField(Ciudad)
-    region = models.ManyToManyField(Region)
+    ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE,blank=True)
 
 class Productos(models.Model):
     nombre = models.CharField(max_length=70)
     costo_presupuesto = models.IntegerField(blank=True)
     costo_real = models.IntegerField(blank=True)
-    tienda = models.ManyToManyField(Tienda)
+    tienda = models.ForeignKey(Tienda, on_delete=models.CASCADE,blank=True)
     notas = models.TextField(max_length=200, blank=True)
 
 def __str__(self):

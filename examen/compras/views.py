@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistroForm
+from .forms import RegistroForm, ProductosForm, TiendaForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 # Create your views here.
@@ -62,12 +62,28 @@ def productos_view(request, pk, template_name='compras/productos_detail.html'):
     productos= get_object_or_404(Productos, pk=pk)    
     return render(request, template_name, {'object':productos})
 
-def productos_create(request, template_name='compras/productos_form.html'):
-    form = ProductosForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('productos_list')
-    return render(request, template_name, {'form':form})
+def productos_create(request):
+    if request.method == 'POST':
+        form = ProductosForm(request.POST)
+        
+        if form.is_valid():
+
+            producto = Productos(nombre = form.cleaned_data['nombre'],
+                        costo_presupuesto = form.cleaned_data['costo_presupuesto'],
+                        costo_real = form.cleaned_data['costo_real'],
+                        tienda = form.cleaned_data['tienda'],
+                        notas = form.cleaned_data['notas']
+                        )
+
+            producto.save()
+            return redirect('inicio')
+
+    else:
+
+        form = ProductosForm()
+
+
+    return render(request, 'compras/productos_form.html', {'form' : form})
 
 def productos_update(request, pk, template_name='compras/productos_form.html'):
     productos= get_object_or_404(Productos, pk=pk)
@@ -90,10 +106,27 @@ class TiendaList(ListView):
 class TiendaView(DetailView):
     model = Tienda
 
-class TiendaCreate(CreateView):
-    moodel = Tienda
-    fields = ['nombre', 'sucursal', 'direccion', 'ciudad', 'region']
-    success_url = reverse_lazy('tienda_list')
+def tienda_create(request):
+    if request.method == 'POST':
+        form = TiendaForm(request.POST)
+        
+        if form.is_valid():
+
+            tienda = Tienda(nombre = form.cleaned_data['nombre'],
+                        sucursal = form.cleaned_data['sucursal'],
+                        direccion = form.cleaned_data['direccion'],
+                        ciudad = form.cleaned_data['ciudad']
+                        )
+
+            tienda.save()
+            return redirect('inicio')
+
+    else:
+
+        form = TiendaForm()
+
+
+    return render(request, 'compras/tienda_form.html', {'form' : form})
 
 class TiendaUpdate(UpdateView):
     model = Tienda
