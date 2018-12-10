@@ -20,11 +20,11 @@ from compras.views import InfoView, ServicioView, InicioView, RegistroUsuario, S
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   	url(r'', include('compras.urls')),
-    url(r'^quienes_somos/$', InfoView.as_view(), name='somos'),
-    url(r'^servicios/$', ServicioView.as_view(), name='servicio'),
     url(r'^inicio/$', InicioView.as_view(), name='inicio'),
     url(r'^registro', RegistroUsuario.as_view(), name="registrar"),
     url(r'^inicia-sesion/$', SignInView.as_view(), name='sign_in'),
     url(r'^cerrar-sesion/$', SignOutView.as_view(), name='sign_out'),
+    url(r'^quienes_somos/$', InfoView.as_view(), name='somos'),
+    url(r'^servicios/$', ServicioView.as_view(), name='servicio'),
+    url(r'', include('compras.urls')),
 ]

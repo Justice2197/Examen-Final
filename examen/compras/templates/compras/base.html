@@ -43,14 +43,14 @@
 
 		            <ul>
 		              	<li><a href="{% url 'registrar' %}">Registro</a></li>
-		              	<li><a href="sign_out">Cuenta</a></li>
+		              	<li><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
 		            </ul>
 		        </div>
 		      </nav>  
 		  	</div>
 
 		  	<ul class="sidenav grey darken-4" id="mobile-demo">
-		    	<li><a href="#">Inicio</a></li>
+		    	<li><a href="{% url 'inicio' %}">Inicio</a></li>
 		      	<li><a href="{% url 'somos' %}">Quienes somos</a></li>
 		      	<li><a href="{% url 'servicio' %}">Servicios</a></li>
 		      	<li><a href="{% url 'registrar' %}">Registro</a></li>
@@ -73,8 +73,7 @@
 		            	<li><a href="{% url 'registrar' %}">Registro</a></li>
 		            	<li><a href="{% url 'sign_in' %}">Ingresar</a></li>
 		            </ul>
-		        </div>
-		      </nav>  
+		        </div> 
  		 	</div>
       
 			<ul class="sidenav grey darken-4" id="mobile-demo">
@@ -83,6 +82,7 @@
 			    <li><a href="{% url 'servicio' %}">Servicios</a></li>
 			    <li><a href="{% url 'registrar' %}">Registro</a></li>
 			</ul>
+		</nav> 
 		{% endif %}
 	</header>
 	
