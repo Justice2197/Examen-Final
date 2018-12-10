@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistroForm, ProductosForm, TiendaForm
 from django.contrib.auth.views import LoginView, LogoutView
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 # Create your views here.
 class InicioView(TemplateView):
     template_name = 'compras/inicio.html'
