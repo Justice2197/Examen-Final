@@ -7,7 +7,8 @@ self.addEventListener('install', function(event) {
         '/base_layout',
         '/static/css/materialize.min.css',
         '/static/css/styles.css',
-        '/static/js/materialize.min.js'    
+        '/static/js/materialize.min.js',
+        '/quienes_somos'    
       ]);
     })
   );
