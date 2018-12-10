@@ -7,7 +7,7 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^$', views.index),
-     url('inicio', views.index, name='inicio'),
+    url('inicio', views.index, name='inicio'),
     path('', include('pwa.urls')),
     path(r'base_layout',views.base_layout,name='base_layout'),
     path('list_productos', views.ProductosList.as_view(), name='productos_list'),
