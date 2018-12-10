@@ -1,0 +1,57 @@
+{
+    "name": "Tu Lista PWA",
+    "short_name": "Tienda PWA",
+    "icons": [{
+      "src": "static/icons/shop-16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      }, {
+        "src": "static/icons/shop-24.png",
+        "sizes": "24x24",
+        "type": "image/png"
+      }, {
+        "src": "static/icons/shop-32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      }, {
+        "src": "static/icons/shop-48.png",
+        "sizes": "48x48",   
+        "type": "image/png"
+      }, {
+        "src": "static/icons/shop-57.png",
+        "sizes": "57x57",
+        "type": "image/png"
+      }, {
+          "src": "static/icons/shop-64.png",
+          "sizes": "64x64",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/shop-72.png",
+          "sizes": "72x72",
+          "type": "image/png"
+        },{
+          "src": "static/icons/shop-114.png",
+          "sizes": "114x114",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/shop-120.png",
+          "sizes": "120x120",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/shop-144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/shop-152.png",
+          "sizes": "152x152",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/shop-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }],
+    "start_url": "./templates/compras/inicio.html",
+    "display": "standalone",
+    "background_color": "#3E4EB8",
+    "theme_color": "#2F3BA2"
+}

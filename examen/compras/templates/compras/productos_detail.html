@@ -1,0 +1,14 @@
+{% extends 'compras/base.html'%}
+
+{% block content %}
+    <br>
+    Nombre: {{ object.nombre }}
+    <br>
+    Costo presupuesto: {{ object.costo_presupuesto }}
+    <br>
+    Costo real: {{ object.costo_real }}
+    <br>
+    Tienda: {{ object.tienda }}
+    <br>
+    Notas adicionales: {{ object.notas }}
+{% endblock %}

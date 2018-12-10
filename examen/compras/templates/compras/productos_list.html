@@ -1,0 +1,56 @@
+{% extends 'compras/base.html'%}
+
+{% block content %}
+<table border="1">
+    <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Costo presupuesto</th>
+        <th>Costo real</th>
+        <th>Tienda</th>
+        <th>Notas adicionales</th>
+        <th>Listar</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+        </tr>
+    </thead>
+    <body>
+        {% for productos in object_list %}
+        <tr>
+        <td>{{ productos.nombre }}</td>
+        <td>{{ productos.costo_presupuesto }}</td>
+        <td>{{ productos.costo_real }}</td>
+        <td>{{ productos.tienda }}</td>
+        <td>{{ productos.notas }}</td>
+        <td><a href="{% url "productos_view" productos.id %}">Listar</a></td>
+        <td><a href="{% url "productos_edit" productos.id %}">Modificar</a></td>
+        <td><a href="{% url "productos_delete" productos.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </body>
+    <br>
+    <a href="{% url "productos_new" %}">Agregar producto</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

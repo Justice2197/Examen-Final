@@ -1,0 +1,125 @@
+
+
+<!DOCTYPE html>
+<html>
+{% load pwa %}
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	{% progressive_web_app_meta %}
+	<title>Mis Listas</title>
+
+	<title>Examen</title>
+
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <meta name="theme-color" content="#76d7c4">
+	  <meta name="background_color" content="#3E4EB8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <!--Manifest-->
+	  <link rel="manifest" href='{% static "manifest.json" %}'>
+</head>
+<body>
+	
+	<header>
+		{% if user.is_authenticated %}
+		  	<div class="navbar-fixed">
+		      <nav id="navegacion">
+		        <div class="container nav-wrapper">
+		            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		            <ul class="right hide-on-med-and-down">
+		              	<li><a href="{% url 'inicio' %}">Inicio</a></li>
+		             	<li><a href="{% url 'somos' %}">Quienes somos</a></li>
+		              	<li><a href="{% url 'servicio' %}">Servicios</a></li>
+		              	<li><a href="{% url 'productos_list'%}">Productos</a></li> 
+						<li><a href="{% url 'tienda_list' %}">Tienda</a></li> 
+		            </ul>
+
+		            <ul>
+		              	<li><a href="{% url 'registrar' %}">Registro</a></li>
+		              	<li><a href="sign_out">Cuenta</a></li>
+		            </ul>
+		        </div>
+		      </nav>  
+		  	</div>
+
+		  	<ul class="sidenav grey darken-4" id="mobile-demo">
+		    	<li><a href="#">Inicio</a></li>
+		      	<li><a href="{% url 'somos' %}">Quienes somos</a></li>
+		      	<li><a href="{% url 'servicio' %}">Servicios</a></li>
+		      	<li><a href="{% url 'registrar' %}">Registro</a></li>
+		  	</ul>
+		{% else %}
+		  	<div class="navbar-fixed">
+		      <nav id="navegacion" class="grey darken-4">
+		        <div class="container nav-wrapper">
+		      		<h5 class="left">Tu Lista</h5>
+		            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		            <ul class="center-align hide-on-med-and-down">
+		              	<li><a href="{% url 'inicio' %}">Inicio</a></li>
+		              	<li><a href="{% url 'somos' %}">Quienes somos</a></li>
+						<li><a href="{% url 'servicio' %}">Servicios</a></li>
+						<li><a href="{% url 'productos_list'%}">Productos</a></li> 
+						<li><a href="{% url 'tienda_list' %}">Tienda</a></li> 
+		            </ul>
+
+		            <ul class="right hide-on-med-and-down">
+		            	<li><a href="{% url 'registrar' %}">Registro</a></li>
+		            	<li><a href="{% url 'sign_in' %}">Ingresar</a></li>
+		            </ul>
+		        </div>
+		      </nav>  
+ 		 	</div>
+      
+			<ul class="sidenav grey darken-4" id="mobile-demo">
+			    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+			    <li><a href="{% url 'somos' %}">Quienes somos</a></li>
+			    <li><a href="{% url 'servicio' %}">Servicios</a></li>
+			    <li><a href="{% url 'registrar' %}">Registro</a></li>
+			</ul>
+		{% endif %}
+	</header>
+	
+	{% block content %}
+	{% endblock %}
+	
+	<footer id="footer" class="page-footer teal lighten-2">
+        <div class="container">
+            <div class="row">
+
+            <div class="col l6 s12">
+            	<h5 class="white-text">Desarrollo Web y Mobile</h5>
+          	</div>
+              
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright
+            </div>
+       	</div>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/idb.js' %}"></script>
+  	<script type="text/javascript" src="{% static 'js/idbop.js' %}"></script>
+	
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+	<!--<script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>-->
+
+	<script>
+		  $(document).ready(function(){
+		    $('.sidenav').sidenav();
+		  });
+	</script>
+
+	
+</body>
+</html>
