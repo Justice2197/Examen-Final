@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistroForm, ProductosForm, TiendaForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
+from django.contrib.auth import logout
 # Create your views here.
 class InicioView(TemplateView):
     template_name = 'compras/inicio.html'
@@ -33,6 +34,10 @@ class ProductosList(ListView):
 class ProductosView(DetailView):
     model = Productos
 
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect("/inicio")
+    
 class ProductosCreate(CreateView):
     model = Productos
     fields = ['nombre', 'costo_presupuesto', 'costo_real', 'tienda', 'notas']

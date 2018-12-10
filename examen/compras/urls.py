@@ -5,6 +5,10 @@ from django.conf.urls import include, url
 from . import views
 from django.urls import path
 
+from django.conf import settings
+
+
+
 urlpatterns = [
     url(r'^$', views.index),
     url('inicio', views.index, name='inicio'),
@@ -20,4 +24,6 @@ urlpatterns = [
     path('new_tienda', views.tienda_create, name='tienda_new'),
     path('edit_tienda/<int:pk>', views.TiendaUpdate.as_view(), name='tienda_edit'),
     path('delete_tienda/<int:pk>', views.TiendaDelete.as_view(), name='tienda_delete'),
+    path('', include('social_django.urls', namespace='social')),
+    path('logout/', views.logout_view, {'next_page': settings.LOGOUT_REDIRECT_URL},name='logout'),
 ]
